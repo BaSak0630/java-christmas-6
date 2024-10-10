@@ -20,9 +20,17 @@ public class EventPlanner {
     }
 
     public void register() {
-        int tmp = inputView.readDate();
-        while (tmp <0 && tmp >31){
-            tmp = inputView.readDate();
+        readReservationDate();
+    }
+
+    private void readReservationDate() {
+        int reservationDate = 0;
+        while (reservationDate == 0) {
+            try {
+                reservationDate = inputView.readDate();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 }
